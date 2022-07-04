@@ -1,0 +1,201 @@
+:root {
+  --primary: #a0be35;
+  --secondary: #a0be35;
+  --green: #a0be35;
+  --gray-blue: #343a40;
+  --violet: #71296c;
+  --dark: #212121;
+  --light: #F3F3F3;
+}
+
+/* --primary: #FFCE00;
+  --secondary: #FE4880; */
+
+* {
+  margin: 0;
+  padding: 0;
+  
+}
+
+body {
+  background: var(--gray-blue);
+  font-family: montserrat, sans-serif;
+  min-height: 100vh;
+}
+
+.card {
+  display: flex;
+  background-color: transparent;
+  margin: 55px auto 0;
+  width: 400px;
+  height: 600px;
+  perspective: 1000px;
+  border: 0;
+}
+
+.card__inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.card__inner.is-flipped {
+  transform: rotateY(180deg);
+}
+
+
+.card__face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.2);
+}
+
+.card__face--front {
+  background-image: linear-gradient(to bottom right, var(--primary), var(--secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card__face--front h2 {
+  color: #FFF;
+  font-size: 32px;
+}
+
+.card__face--back {
+  background-color: var(--light);
+  transform: rotateY(180deg);
+}
+
+.card__content {
+  width: 100%;
+  height: 100%;
+}
+
+.card__header {
+  display: grid;
+  justify-content: center;
+  position: relative;
+  padding: 30px 30px 40px;
+  justify-items: center;
+}
+
+.card__header:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(to bottom left, var(--primary) 10%, var(--secondary) 115%);
+  z-index: -1;
+  border-radius: 0px 0px 50% 0px;
+}
+
+/* .pp {
+  display: block;
+  width: 128px;
+  height: 128px;
+  margin: 0 auto 30px;
+  border-radius: 50%;
+  background-color: #FFF;
+  border: 5px solid #FFF;
+  object-fit: cover;
+} */
+
+.card__header img{
+  display: flex;
+  justify-content: center;
+  width: 30%;
+  border-radius: 150px;
+}
+
+.card__header h2 {
+  color: #FFF;
+  font-size: 32px;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.card__body {
+  text-align: center;
+  padding: 50px 10px;
+}
+
+.card__body h3 {
+  padding-top: 20px;
+  font-family: 'Poppins', sans-serif;
+  color: var(--gray-text);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.card__body #resultado{
+  font-weight: bold;
+}
+
+.card__body p {
+  color: var(--dark);
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.boton{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-group{
+  padding-bottom: 30px;
+}
+
+.form-group.cheque{
+  padding-bottom: 40px;
+}
+
+.form-group.simMonto{
+  padding-bottom: 20px;
+}
+.btn-dark{
+  background-color: var(--gray-blue);
+  border-color: transparent;
+}
+
+.btn-dark:hover{
+  background-color: var(--violet);
+  border-color: transparent;
+}
+
+.btn-light{
+  background-color: var(--green);
+  color: white;
+  border-color: transparent;
+}
+
+.simulador-background form{
+  margin: 1rem;
+  width: 90%;
+}
+
+
+/* DISPLAY ERROR DEL SIMULADOR DE CHEQUES */
+#error{
+  text-align: center;
+  color: var(--violet);
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
